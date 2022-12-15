@@ -1,0 +1,8 @@
+# proof of replication of statistical tests amd figure 1A and B in Main and Supplemental manuscript
+run the script to replicate 
+- figure 1A, main: GPSD in control condition
+- figure 2A, main: path length in control condition
+- figure 1A, main: GPSD in light condition
+- figure 2A, main: path length in light condition
+
+unable to replicate figure 1C (clustering) because i still do not know which data set is the clustering data set

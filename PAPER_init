@@ -1,0 +1,59 @@
+# 0.00 
+
+## 0.00 Outline
+
+___
+# Inputs/Factors to assess
+Tasks Type 
+  - **Assess consistencies accross tasks**
+  - **Asses variablity accross tasks**
+  - Assess only one task
+
+Subjects/Individuals 
+- **Assess variablity between subjects**
+- **Assess consitencies accross subjects**
+
+Intervention Type
+- assess consistencies between interventions
+- assess differences in interventions
+- **assess only control** 
+
+Time (ordinal)
+- **time 1/single**
+- ordinal evolution
+- average
+
+Frequency Network
+- **consistencies**
+- **differences**
+- only one band/remove central bands
+
+## Assessments
+Fig 1 analysis
+
+Conditional analysis
+- slope
+- conditional
+
+Distribition/Within Variance analysis
+
+
+
+# Data Problems and solutions
+**What problems/limitations in tis work, and how can we resolve them, or should we ommit them?**
+results accross time highly inconsistent
+- lest then  assess t=1
+- kanikas argument for the inconsisteny is due to fatigue
+
+Lots of outliers, especially with global measurments
+  - already have some good arguments for outliers (see readmes)
+  - will assess and focus on individual variance
+  - will assess local node data with more power
+  - use more robust statistical tests
+
+Temporal confounds of tasks 
+  - will have less focus on tasks
+
+Inconsistency of light and control
+  - will focus on control rather than light
+

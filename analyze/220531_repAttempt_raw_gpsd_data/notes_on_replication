@@ -1,0 +1,18 @@
+# read me, for information about current folder
+
+i was able to successfullt replicate all the original data using my own functions and classes
+the code is cleaner and more flexible
+i did this to try to understand the code better, which i do now
+i can now process the data for any cognitive test (this was orriganlly only for the PVT data set)
+
+Details of replication
+- for each combination of condition and subject
+	- i replicated the raw psd matrix (ie i organized each subjects psd matrix, given the night and order of being exposed to each condition)
+	- I replicated the normalized the psd matrix (ie the psd matrix of all frequencies centered on their mean and scaled by their sd)
+	- I replicated the global psd matrix (ie the normalized psd matrix of the 4 frequency bands, averaged accross channels)
+
+
+you should be able to run the script in this folder to see the replication results. they were exact
+all data files, should be accessable to the functions 
+
+

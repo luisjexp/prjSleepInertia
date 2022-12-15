@@ -1,0 +1,12 @@
+# readme
+this code shows that i replicated the the first part of the plotting funct 22_08_05
+i was able to do this using my own version of the code.
+including my getglobalpsd function wchich is highly customized,
+and my getnework function, which still contains lots of the original code from the extract_wpli function, although with significant modifications
+
+specifically i only replication of the initial variables and analysis under section 'figure 1'
+however, the rest of the script (figure 2)  performed the same exact analysis but with the variables psd and mm variables switched
+
+note that this script is not really replicating the results in the main paper,
+this is evident in the comparison of psd/strg values during baseline with the AVERAGE of the first two runs
+this analysis is not seen in any part of the main paper, nor supplemental methods 

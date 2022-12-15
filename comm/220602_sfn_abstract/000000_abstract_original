@@ -1,0 +1,45 @@
+Reconfigurations in brain networks upon awakening from slow wave sleep: Interventions and
+implications in neural communication
+
+One sentence summary
+Blue-enriched light partially accelerates the rapid prioritization of long-range communication
+within the human brain that characterizes sleep inertia
+
+# ORIGINAL ABSTRACT
+
+## Intro
+- Sleep inertia is the brief period of impaired alertness and performance experienced immediately after waking. 
+
+## Problem: Literature Gap
+- While the neurobehavioral symptoms of sleep inertia are well-described, less is known about the neural mechanisms underlying this phenomenon. 
+
+- A better understanding of the neural processes during sleep inertia may offer insight into the cognitive impairments observed
+and the awakening process generally. 
+
+## Methods
+
+- We observed brain activity following abrupt awakening from slow wave sleep during the biological night. 
+
+- Using electroencephalography (EEG) and a network science approach, 
+
+- we evaluated power, clustering coefficient, and path length 
+- across frequency bands
+- under both a control condition and a blue-enriched light intervention condition in a within-subject design. 
+
+## Results
+We found that under control conditions, 
+- the awakening brain is typified by an immediate reduction in global theta, alpha, and beta power. 
+Simultaneously, we observed a decrease in the clustering coefficient and an increase in path length within the delta band.
+
+Exposure to blue-enriched light immediately after awakening 
+- ameliorated these changes, but only for clustering. 
+
+## Interpretation
+Our results suggest that 
+- long-range network communication within the brain is crucial to the waking process 
+- and the brain may prioritize these long-range connections during this transitional state. 
+
+## Significance
+Our study 
+- highlights a novel neurophysiological signature of the awakening brain
+- and provides a potential mechanistic explanation for the effect of light in improving performance after waking.

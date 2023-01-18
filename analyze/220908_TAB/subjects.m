@@ -66,21 +66,18 @@ classdef subjects < handle
             [~, hostname] =  system('hostname')  ;  
             hostname = strtrim(hostname);
             switch hostname
-                case 'luis.ss.uci.edu'
-                    obj.path_data = fullfile('/home/luis/Dropbox/DEVCOM/prjSleepinertia/analyze', 'data');
+                case {'luis.ss.uci.edu','hnle'}
+                    obj.path_data = fullfile('/home/luis/Insync/DEVCOM/prjSleepInertia/analyze', 'data');
                     obj.path_tool_eeglab  = fullfile('/home/luis/Dropbox/DEVCOM/prjSleepinertia/analyze', 'eeglab2022.0');
 
                 
                 case  'DESKTOP-U2CJDUH'
-                    obj.path_data = fullfile('C:\Users\Luis\Dropbox\DEVCOM\prjSleepinertia\analyze', 'data');
+                    obj.path_data = fullfile('G:\My Drive\DEVCOM\prjSleepInertia\analyze', 'data');
                     obj.path_tool_eeglab  = fullfile('C:\Users\Luis\Dropbox\DEVCOM\prjSleepinertia\analyze', 'eeglab2022.0');
 
                 case  {'LuisMac', 'luismacair'}
-                    gdrivepath = '/Users/luis/Library/CloudStorage/GoogleDrive-luisjexp@gmail.com/My Drive/';
-                    obj.path_data = fullfile(strcat(gdrivepath,...
-                        'DEVCOM/prjSleepInertia/analyze/'), 'data');
-
-%                     obj.path_tool_eeglab  = fullfile('/Users/luis/Dropbox/DEVCOM/prjSleepinertia/analyze/', 'eeglab2022.0');
+                    obj.path_data = fullfile('/Users/luis/Library/CloudStorage/GoogleDrive-luisjexp@gmail.com/My Drive/DEVCOM/prjSleepInertia/analyze/', 'data');
+                    obj.path_tool_eeglab  = fullfile('/Users/luis/Library/CloudStorage/GoogleDrive-luisjexp@gmail.com/My Drive/DEVCOM/prjSleepInertia/analyze/', 'eeglab2022.0');
                 case 'your computer host name here'
                     % obj.path_data = enter the path of your data set here
                 otherwise

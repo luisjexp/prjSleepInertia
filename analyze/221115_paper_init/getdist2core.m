@@ -1,9 +1,9 @@
 function D2C = getdist2core(cogtask_set,opts)
     arguments
         cogtask_set
-        opts.gamm_set = [0.85, 0.91, 0.98, 1.04, 1.1]; % defeault for all tasks, since they can all run these 
+        opts.gamm_set = [0.85, 0.91, 0.98, 1.04, 1.1]; % defeault for all tasks, since they can all run these without error
     end
-% <u> Created function that computes the distance's to core with varying
+% Created function that computes the distance's to core with varying
 % gamme' thersholds
 %  This function creates a table where each row contains a a node's
 %  distance's to core, for each task, band, and run, condition and subject.

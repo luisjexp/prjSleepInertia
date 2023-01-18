@@ -24,13 +24,17 @@ function [res_str,res_summ_str,res_num] = runmultitests(df,ntwprop, opts)
     end
 
 
-    [res_str_cntl, res_summ_str_cntl,control_ranktest_p, control_ttest_p] = runalltests(bl,cntl,bl_vs_cntl,ntwprop,'plotAvovaTbl',opts.plotAvovaTbl,'Xname','BL','Yname','CTRL') ;
-    [res_str_light, res_summ_str_light,light_ranktest_p, light_ttest_p] = runalltests(bl,light,bl_vs_light,ntwprop,'plotAvovaTbl', opts.plotAvovaTbl,'Xname','BL','Yname','LIGHT') ;
+    [res_str_cntl, res_summ_str_cntl,control_ranktest_p, control_ttest_p, control_signranktest_p] = runalltests(bl,cntl,bl_vs_cntl,ntwprop,'plotAvovaTbl',opts.plotAvovaTbl,'Xname','BL','Yname','CTRL') ;
+    [res_str_light, res_summ_str_light,light_ranktest_p, light_ttest_p, light_signranktest_p] = runalltests(bl,light,bl_vs_light,ntwprop,'plotAvovaTbl', opts.plotAvovaTbl,'Xname','BL','Yname','LIGHT') ;
     
     res_num.control.ranktest_p = control_ranktest_p;
     res_num.control.ttest_p = control_ttest_p;
+    res_num.control.signranktest_p = control_signranktest_p;
+    
     res_num.light.ranktest_p = light_ranktest_p;
     res_num.light.ttest_p = light_ttest_p;
+    res_num.light.signranktest_p = light_signranktest_p;
+    
 
     res_str = sprintf('BL vs CTRL | %s\nBL vs LIGHT | %s\n',res_str_cntl,res_str_light);
     res_summ_str = sprintf('BL vs CTRL:%s\nBL vs LIGHT:%s\n',res_summ_str_cntl,res_summ_str_light);
@@ -78,7 +82,7 @@ function [res_str,res_summ_str,res_num] = runmultitests(df,ntwprop, opts)
 end
 
 %% Run Distribution Tests
-function [res_str,res_str_keyresults,ranktest_p, ttest_p] = runalltests(X,Y,catXY,ntwprop,opts)
+function [res_str,res_str_keyresults,ranksumtest_p, ttest_p,signranktest_p] = runalltests(X,Y,catXY,ntwprop,opts)
     arguments
         X, Y, catXY, ntwprop
         opts.plotAvovaTbl = 'off';
@@ -119,12 +123,9 @@ function [res_str,res_str_keyresults,ranktest_p, ttest_p] = runalltests(X,Y,catX
     end
     ttest_str = sprintf('ttest(%s): Are MEANS different (assuming both normal + same spread)? %d (p=%.04f)\n',ttesttype, ttest_h, ttest_p);       
     % otherwise, we run a rank sum test that checks if two independent
-    % samples come from distributions with equal medians.  The two sets of
-    % data are assumed to come from continuous distributions that are
-    % identical except possibly for a location shift, but are otherwise
-    % arbitrary. 
-    [ranktest_p, ranktest_h] = ranksum(X, Y);
-    ranktest_str = sprintf('ranksum: "Are MEDIANS different?" (assuming cont + same means + same spread): %d (p=%.04f)\n',ranktest_h,ranktest_p);
+    % samples come from distributions with equal medians.  
+    [ranksumtest_p, ranktest_h] = ranksum(X, Y);
+    ranksumtest_str = sprintf('ranksum: "Are MEDIANS different?" (assume:cont+samemean+samespread+independ): %d (p=%.04f)\n',ranktest_h,ranksumtest_p);
 
 
     % OR, we run Ansari-Bradley test is a nonparametric alternative
@@ -138,11 +139,15 @@ function [res_str,res_str_keyresults,ranktest_p, ttest_p] = runalltests(X,Y,catX
     abtest_str = sprintf('ab: Are MEANS different (assuming same means + same spread)?:  %.04f \n',ans_p_XvY);
 
 
+    % or, sign rank wchich is like rank sum but for dependent samples
+    [signranktest_p, signranktest_h] = signrank(X, Y);
+    signranktest_str = sprintf('sign rank:: %d (p=%.04f)\n',signranktest_h,signranktest_p);
+    
     % Store Detailed Results
-    res_str = strjoin( {kstest_str,bartest_str,levtest_str,ranktest_str, ttest_str} );
+    res_str = strjoin( {kstest_str,bartest_str,levtest_str,ranksumtest_str, signranktest_str, ttest_str} );
 
-    % Only get Ttest and rank test results
-    res_str_keyresults = sprintf('\n%s%s',ranktest_str,ttest_str);        
+    % Only get Ttest and rank sign test results
+    res_str_keyresults = sprintf('\n%s%s',signranktest_str,ttest_str);        
     
 
 

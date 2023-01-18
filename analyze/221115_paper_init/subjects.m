@@ -66,7 +66,7 @@ classdef subjects < handle
             [~, hostname] =  system('hostname')  ;  
             hostname = strtrim(hostname);
             switch hostname
-                case 'luis.ss.uci.edu'
+                case {'luis.ss.uci.edu','hnle'}
                     obj.path_data = fullfile('/home/luis/Insync/DEVCOM/prjSleepInertia/analyze', 'data');
                     obj.path_tool_eeglab  = fullfile('/home/luis/Dropbox/DEVCOM/prjSleepinertia/analyze', 'eeglab2022.0');
 

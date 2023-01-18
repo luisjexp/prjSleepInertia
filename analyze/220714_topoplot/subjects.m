@@ -69,8 +69,8 @@ classdef subjects < handle
 
                 
                 case  'DESKTOP-U2CJDUH'
-                    obj.path_data = fullfile('C:\Users\Luis\Dropbox\DEVCOM\prjSleepinertia\analyze', 'data');
-                    obj.path_tool_eeglab  = fullfile('C:\Users\Luis\Dropbox\DEVCOM\prjSleepinertia\analyze', 'eeglab2022.0');
+                    obj.path_data = fullfile('G:\My Drive\DEVCOM\prjSleepInertia\analyze\', 'data');
+                    obj.path_tool_eeglab  = fullfile('G:\My Drive\DEVCOM\prjSleepInertia\analyze\', 'eeglab2022.0');
 
                 
                 case 'your computer host name here'

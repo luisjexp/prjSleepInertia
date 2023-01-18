@@ -1,4 +1,4 @@
-function DF = dfmaster(opts)
+function df = dflong(opts)
     arguments
         % unless specified, all cog tests will be added to the data frame        
         opts.cogtestlist = {'PVT', 'GoNogo', 'Math'}; 
@@ -26,7 +26,7 @@ function DF = dfmaster(opts)
     num_chan = 23;
 
 
-    DF = table();
+    df = table();
     for cogidx = 1:numcogtest
         cogtest     = opts.cogtestlist{cogidx};
         gpsd    = getglobalpsd(cogtest);
@@ -114,7 +114,7 @@ function DF = dfmaster(opts)
                     end
                     df_tmp = cell2table( [num2cell(Ynf(:))  df_init num2cell(df_chan_rows) num2cell(df_sbj_rows(:))] );
                     df_tmp.Properties.VariableNames = {'Y', 'ntwprop', 'cogtest', 'condition', 'rununique', 'band', 'chan', 'sbj'};
-                    DF = [DF; df_tmp];
+                    df = [df; df_tmp];
 
                 end
 
@@ -125,36 +125,36 @@ function DF = dfmaster(opts)
 
 
 
-    DF.ntwprop = categorical(DF.ntwprop);
-    DF.condition = categorical(DF.condition);
-    DF.condition = reordercats(DF.condition,{'baseline','control','light'});
-    DF.cogtest = categorical(DF.cogtest);
+    df.ntwprop = categorical(df.ntwprop);
+    df.condition = categorical(df.condition);
+    df.condition = reordercats(df.condition,{'baseline','control','light'});
+    df.cogtest = categorical(df.cogtest);
     
 
-    DF.run = nan(height(DF),1);
-    DF.run( DF.condition == "baseline") = 0;
-    DF.run( DF.condition == "control" & DF.rununique == 1   ) = 1;
-    DF.run( DF.condition == "control" & DF.rununique == 2   ) = 2;
-    DF.run( DF.condition == "control" & DF.rununique == 3   ) = 3;
-    DF.run( DF.condition == "control" & DF.rununique == 4   ) = 4;    
-    DF.run( DF.condition == "light" & DF.rununique == 5   ) = 1;
-    DF.run( DF.condition == "light" & DF.rununique == 6   ) = 2;
-    DF.run( DF.condition == "light" & DF.rununique == 7   ) = 3;
-    DF.run( DF.condition == "light" & DF.rununique == 8   ) = 4;
+    df.run = nan(height(df),1);
+    df.run( df.condition == "baseline") = 0;
+    df.run( df.condition == "control" & df.rununique == 1   ) = 1;
+    df.run( df.condition == "control" & df.rununique == 2   ) = 2;
+    df.run( df.condition == "control" & df.rununique == 3   ) = 3;
+    df.run( df.condition == "control" & df.rununique == 4   ) = 4;    
+    df.run( df.condition == "light" & df.rununique == 5   ) = 1;
+    df.run( df.condition == "light" & df.rununique == 6   ) = 2;
+    df.run( df.condition == "light" & df.rununique == 7   ) = 3;
+    df.run( df.condition == "light" & df.rununique == 8   ) = 4;
 
-    DF.band_ord = categorical(DF.band,{'delta','theta','alpha','beta'}, 'Ordinal',true);
+    df.band_ord = categorical(df.band,{'delta','theta','alpha','beta'}, 'Ordinal',true);
        
-    DF = removevars(DF,{'rununique','band'});  % these needs to go, causes bugs when averaging accross groups, see readme
-    DF = dfrmcats(DF);
+    df = removevars(df,{'rununique','band'});  % these needs to go, causes bugs when averaging accross groups, see readme
+    df = dfrmcats(df);
 
     
     if opts.getd2cdf
         D2C = getdist2core(opts.cogtestlist);
-        DF = [DF;D2C];
+        df = [df;D2C];
     end
     
     % Validate
-    dfsumm = summary(DF);
+    dfsumm = summary(df);
     if (dfsumm.run.NumMissing >0)
         error('LUIS: one of the variables in your data frame has an error')    
     end

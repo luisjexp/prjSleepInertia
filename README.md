@@ -2,20 +2,81 @@
 ![Experimental Procedure](/readme_fig_experiment_procedure.png)
 
 
-# 22 11 12 BUILDING PAPER**
+# 23 01 11 NASA MEET 2
 
-## TO DO: TODAY/URGENT**
-Weighted degree analysis as discussed with kanika
-- subject x subject
-- my analysis
-- topoplot/anotomical analysis
-Kanika analysis (see whitboard)
-## Realizations
+
+!!! ! **TO DO ASAP**
+Meeting with javia and kanika
+cncept of homogeneity
+- analysis: compare BL low vs bl high
+
+task specifiticity : 
+- PVT ~= KDT: argumanet to defend experimental results (as a control)
+
+Subject variance analysis
+- low vs high degrees
+
+Send summary results to nasa
+
+Look over dat set 
+
+
+** HEY THE COUNT/FS TOPOPLOTS SHOULD NOT BE NORMALIZED
+
+**OTHER TODO**
+
+Frequency Band Analysis 
+Are some nodes connected in some bands but not others?
+
+Plotting Methods
+GardnerAltmanPlot!!!!
+Weighted graphs
+using wpli matrix, create a graph structure!!!! 
+
+
+Gava 2021 analysis  
+- Correlations between WPLI matrices accross runs and conditions
+- correlations between channels data set accross runs and conditions
+- classification of conditions using classifier
+
+
+
+# 22 11 12 NASA MEET 2 
+analysis used to present to nasa peeps on january 12 
+folder needs some cleaning: namely a clean description, and final run me scripts.
+
+
+**Discussion notes from presenation**
+Concept of homogeneity
+- analysis: compare BL low vs bl high
+
+task specifiticity : 
+- PVT ~= KDT: argumanet to defend experimental results (as a control)
+
+Subject variance analysis
+- low vs high degrees
+
+Send summary results to nasa
+
+Look over dat set 
+
+
+
+**New Things + functions**
+**created a function **- _splitdfbycondition(df_wide)_ - that takes in the wide data frame (must contain data from all three conditions) and splits the data frame into 3 different onces, each with data from one condition only. typically this function is usd to compare/test variables accross conditions. very usefull and makes code simpler
+
+New Stats: corrected for multiple comparisons and changed from using rank sum tests (assume independence) to sign rank (assume dependence)
+
+
+**Realizations**
 Remember!!! comparing control vs light is important, and gives plenty of insight even in cases where the intervention is no different from control
 
 at sfn i had an interesting questions, that stirred my thoughts. what really is the implication of the analysis at different frequencies? I beleive it implies that there are 4 different networks, distinguished by their frequency at which they occilate (whether they influence eachother is not my concern here, thus i can consider them as being independent). thus i am analysing the connectivit of 4 different networks. 
 
-### Meeting with Joni for Proper Statistics/statistical tests
+**<u> show javi how i tossed some subjects from the analysis**</u> 
+
+
+**Meeting with Joni for Proper Statistics/statistical tests**
 How to compare differences of within group variances...??
 - kolmorog sminog test distribution test
 
@@ -24,91 +85,18 @@ Interaction interpretation
 - simple not main effects!
   - slope of X for the reference group
 
-## To Do:Back Burner
-**<u> show javi how i tossed some subjects from the analysis**</u> 
-
-**<u>Effect Sizes!!**!</u>
-Use cohends D  
-justify potential 'over power' issues
-Rerun all analysis by removign  outliers
-
-**<u> Gava 2021 analysis </u>** 
-- Correlations between WPLI matrices accross runs and conditions
-- correlations between channels data set accross runs and conditions
-- classification of conditions using classifier
-
-**<u> Question: find the support of distribution**s </u>
-what is the maximum centrality that is possible? does this depend on weather the graph is connected or disconnected (which our case many of  our nodes have a value of 0 impying a disconnect graph) or does it depend on whethere its a weighted graph? right now im just assuming that the maximum is the total number of pairs . 
-
-[see this site here] (https://faculty.nps.edu/rgera/MA4404/Winter2020/06-CentralitiesBetweenness.pdf). It states...
-"Let G be a disconnected graph:
-What is the minimum value of betweenness centrality a vertex can have in disconnected graphs? – an isolated vertex: 0 •
-What is the maximum value of betweenness centrality a vertex can have in disconnected graphs 
-center of a star with center: n^2 - (n -1)
-let V(star) = {v0,v1,v2...vn-1} with center node at v
-then there are n^2 pairs of nodes, from which we tak away n-1 shortest paths from vi to vi since v is not one on those paths
-Or perhaps i can simulate it using a random walk as this post suggests???
-
-But anoter post says something else
-https://www.joshobrouwers.com/articles/between-you-me-network-analysis/
-(n^2 - 3*n + 2)  /2
-but this doesnt work for some data which have values greater than this
-
-**<u>  Assess the visual channels, focusing on the potential implications of light sensitive RGCs** </u> 
-
-**<u>  Comparing accross tasks, or accross time points within tasks, using a regression**   </u> 
-- Use clustered regression techniques as discussed with jodi
+Use clustered regression techniques as discussed with jodi
   - use mixed effects models
   - initial methods, for samples at 2 time points: Clustered robust standard error regression R package to use: huber white standard package 
   - More complex method, for more that 2 time points: longitudinal mixed models 
 
-**Relationship Analysis** 
-For each pair of variables 
-- path length
-- power
-- centrality metrics 
-  - clustering
-  - dist2core
-  - degree
 
-Run a relationship analysys such as
-- assess relations (slope, subtraction or ratio)
-- Assess relations with complex models ?
-- Assess the intercept in a slope analysis
-- bootstrap to get an error bounds for the relationships
-
-**Run a Conditions Analysis**
- eg how power changes between conditions for nodes with low vs high degrees of clustering
-note that this is distinct from the  relationship/slope analysis
-
-**Variance Analysis**
-Note that these tests can already be used in code, just need interpretation for 
-- each condition
-- each band
-- each time point
-- each task
-They essentially run the original figure 1 analysis but directly test how the intervention mediates the effect of waking
-
-**Frequency Band Analysis** 
-Are some nodes connected in some bands but not others?
-
-**assess the integrity of the distance to core gamma thresholds**
-- plot distributions and make sure they look good for each task
-- hard code a 'good' set of gamma thresholds for each task to avoid thresholds too low or high
-
-
-**Plotting Methods**
-GardnerAltmanPlot!!!!
-Weighted graphs
-Topoplots 
-using wpli matrix, create a graph structure!!!! 
-___
 
 # 22 10 13 SFN Poster
 
 Presented sfn poster which was an updated version of the TAB poster.
 
-**Completed**
+!!! ! **Completed**
 Finished figure and analysis
 - remove last figure/Replace with math results
 - add eeg node graph example
@@ -137,7 +125,7 @@ Get New centrality measures
 This is computed for each node, for each task, band, and run, condition and subject. 
 Thus, the table  matches the format and columns of your other 'master' data frame. You should be able to concetinate this data table with the master data, and use the dfmastersplit function to create an analysis data frame.
 
-**REALIZATIONS**
+!!! ! **REALIZATIONS**
 <u> Plot conditional analysis for the path length and clustering</u>
 this is tough because there is not enough data, the only option is to add all tasks or bands together, or split into two groups
 
@@ -153,7 +141,39 @@ analyzing control vs light, since this is important as well and can still be con
 > With a large sample, outliers are expected and more likely to occur. But each outlier has less of an impact on your results when your sample is large enough. The central tendency and variability of your data won’t be as affected by a couple of extreme values when you have a large number of values.
 > 
 > If you have a small dataset, you may also want to retain as much data as possible to make sure you have enough statistical power. If your dataset ends up containing many outliers, you may need to use a statistical test that’s more robust to them. Non-parametric statistical tests perform better for these data.
-________________________________
+
+
+
+!!! ! **Variance Analysis depreciated)** no need to consider this analysis any more, since i will not run this analysis (comment made on december 19th 2022, well after this question and analysis was created)
+
+
+Note that these tests can already be used in code, just need interpretation for 
+- each condition
+- each band
+- each time point
+- each task
+They essentially run the original figure 1 analysis but directly test how the intervention mediates the effect of waking
+
+
+Question: find the support of distributions 
+
+what is the maximum centrality that is possible? does this depend on weather the graph is connected or disconnected (which our case many of  our nodes have a value of 0 impying a disconnect graph) or does it depend on whethere its a weighted graph? right now im just assuming that the maximum is the total number of pairs . 
+
+[see this site here] (https://faculty.nps.edu/rgera/MA4404/Winter2020/06-CentralitiesBetweenness.pdf). It states...
+"Let G be a disconnected graph:
+What is the minimum value of betweenness centrality a vertex can have in disconnected graphs? – an isolated vertex: 0 •
+What is the maximum value of betweenness centrality a vertex can have in disconnected graphs 
+center of a star with center: n^2 - (n -1)
+let V(star) = {v0,v1,v2...vn-1} with center node at v
+then there are n^2 pairs of nodes, from which we tak away n-1 shortest paths from vi to vi since v is not one on those paths
+Or perhaps i can simulate it using a random walk as this post suggests???
+
+But anoter post says something else
+https://www.joshobrouwers.com/articles/between-you-me-network-analysis/
+(n^2 - 3*n + 2)  /2
+but this doesnt work for some data which have values greater than this
+
+
 
 # 22 09 08 Submitted TAB Poster
 
